@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id      String    @id
+  name    String
+  reviews Review[]
+
+  @@map("companies")
+}
+
+model Review {
+  id          String    @id
+  reviewerId  String    @map("reviewer_id")
+  companyId   String    @map("company_id")
+  reviewText  String?   @map("review_text")
+  rating      Int?
+  createdOn   String    @map("created_on")
+  companies   Company   @relation(fields: [companyId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users       User      @relation(fields: [reviewerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("reviews")
+}
+
+model User {
+  id         String    @id
+  firstName  String?   @map("first_name")
+  lastName   String?   @map("last_name")
+  email      String    @unique(map: "sqlite_autoindex_users_2")
+  reviews    Review[]
+
+  @@map("users")
+}
