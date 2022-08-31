@@ -48,7 +48,8 @@
 			"defaultConfiguration": "development",
 			"options": {
 				"buildTarget": "reviews-client:build",
-				"hmr": true
+				"hmr": true,
+				"proxyConfig": "apps/reviews-client/proxy.conf.json"
 			},
 			"configurations": {
 				"development": {
