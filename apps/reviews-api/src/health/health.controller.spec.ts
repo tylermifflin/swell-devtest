@@ -2,7 +2,9 @@ import { INestApplication } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
+import { DatabaseService } from '../database/database.service';
 import { HealthController } from './health.controller';
+import { PrismaHealthIndicator } from './prisma-health-indicator';
 
 describe('HealthController', () => {
 	let app: INestApplication;
@@ -11,6 +13,10 @@ describe('HealthController', () => {
 		const module: TestingModule = await Test.createTestingModule({
 			controllers: [HealthController],
 			imports: [TerminusModule],
+			providers: [
+				{ provide: DatabaseService, useValue: { $queryRaw: jest.fn() } },
+				PrismaHealthIndicator,
+			],
 		}).compile();
 
 		app = module.createNestApplication();
