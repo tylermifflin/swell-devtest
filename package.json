@@ -10,6 +10,7 @@
 	},
 	"private": true,
 	"devDependencies": {
+		"@emotion/babel-plugin": "^11.10.2",
 		"@nrwl/cli": "14.6.0",
 		"@nrwl/eslint-plugin-nx": "14.6.0",
 		"@nrwl/jest": "14.6.0",
@@ -17,11 +18,13 @@
 		"@nrwl/react": "^14.6.0",
 		"@nrwl/web": "14.6.0",
 		"@nrwl/workspace": "14.6.0",
+		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "13.3.0",
 		"@types/jest": "28.1.1",
 		"@types/node": "16.11.7",
 		"@types/react": "18.0.17",
 		"@types/react-dom": "18.0.6",
+		"@types/webfontloader": "^1.6.34",
 		"@typescript-eslint/eslint-plugin": "~5.33.1",
 		"@typescript-eslint/parser": "~5.33.1",
 		"babel-jest": "28.1.1",
@@ -41,10 +44,14 @@
 		"typescript": "~4.7.2"
 	},
 	"dependencies": {
+		"@emotion/react": "^11.10.4",
+		"@emotion/styled": "^11.10.4",
+		"@mui/material": "^5.10.3",
 		"core-js": "^3.6.5",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"regenerator-runtime": "0.13.7",
-		"tslib": "^2.3.0"
+		"tslib": "^2.3.0",
+		"webfontloader": "^1.6.28"
 	}
 }
