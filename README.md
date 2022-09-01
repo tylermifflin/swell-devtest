@@ -20,6 +20,28 @@ The project was generated using [Nx](https://nx.dev) to provide a modern integra
 
 The app doesn't do much (yet)... that part is up to the applicant.
 
+### Project Structure
+
+The project is a simple Nx workspace with two applications, located in the `apps` directory.
+For simplicity, we chose not to place code in libraries (`libs` directory), but if you are familiar with Nx,
+you are more than welcome to refactor the code to use libraries.
+There is also a `db` directory which contains a sample SQLite database seeded with some data,
+and a `prisma` directory which contains the Prisma schema file.
+
+```
+swell-devtest
+├── apps (backend and front end applications)
+│   ├── reviews-api
+│   │   └── src
+│   ├── reviews-client
+│   │   └── src
+├── db (database files)
+│   └── swell-sample.db
+├── libs (Nx libraries [currently empty])
+└── prisma (Prisma schema file)
+    └── schema.prisma
+```
+
 ## Getting Started
 
 To get you started you can simply fork the [swell-devtest](https://github.com/Swell-Platform/swell-devtest) repository, clone it locally, and install the dependencies.
