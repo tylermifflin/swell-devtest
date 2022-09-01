@@ -4,8 +4,10 @@
 	"license": "MIT",
 	"scripts": {
 		"nx": "nx",
-		"start": "nx serve",
+		"affected": "nx affected --target",
 		"build": "nx build",
+		"serve": "nx serve",
+		"start": "nx run-many --target=serve --projects=reviews-api,reviews-client",
 		"test": "nx test",
 		"prepare": "husky install && prisma generate"
 	},
