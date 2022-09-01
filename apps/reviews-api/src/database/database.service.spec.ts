@@ -12,7 +12,7 @@ describe('DatabaseService', () => {
 		service = module.get<DatabaseService>(DatabaseService);
 	});
 
-	it('should be defined', () => {
-		expect(service).toBeDefined();
+	it('should connect to database', () => {
+		expect(service.$queryRaw`SELECT 1`).resolves.not.toBeUndefined();
 	});
 });
