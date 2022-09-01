@@ -73,7 +73,9 @@ npm install
 
 ### Create the Database
 
-This project uses a simple [SQLite](https://www.sqlite.org/index.html) database. A seeded database is include in the repository at `<projectRoot>/db/swell-sample.db`. Before running the application, you will need to copy this file to `<projectRoot>/db/swell.db` by running the following command:
+This project uses a simple [SQLite](https://www.sqlite.org/index.html) database.
+A seeded database is include in the repository at `<projectRoot>/db/swell-sample.db`.
+Before running the application, you will need to copy this file to `<projectRoot>/db/swell.db` by running the following command:
 
 ```bash
 npm run setup
@@ -88,7 +90,8 @@ To start both applications, run the following command:
 npm start
 ```
 
-This will start the backend API server on port 3333 and the front end application on port 4200. The app will automatically reload if you change any of the source files.
+This will start the backend API server on port 3333 and the front end application on port 4200.
+The app will automatically reload if you change any of the source files.
 
 The applications can also be run independently by running the following commands:
 
@@ -99,6 +102,11 @@ npm run serve reviews-api
 # Start the front end application
 npm run serve reviews-client
 ```
+
+### Backend Proxy
+
+For convenience, the front end application is configured to proxy API requests to the backend API server.
+When making requests to the API, you can use the relative path `/api`.
 
 ## Running Unit Tests
 
