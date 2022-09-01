@@ -6,10 +6,11 @@ This project was generated using [Nx](https://nx.dev).
 
 ## TL;DR
 
-1. Fork this repository on GitLab
+1. Fork this repository on GitHub
 2. Run `npm install`
-3. Run `npm start`
-4. Browse to [http://localhost:4200](http://localhost:4200/)
+3. Run `npm run setup`
+4. Run `npm start`
+5. Browse to [http://localhost:4200](http://localhost:4200/)
 
 ## Introduction
 
@@ -21,7 +22,7 @@ The app doesn't do much (yet)... that part is up to the applicant.
 
 ## Getting Started
 
-To get you started you can simply fork the [swell-devtest][swell-devtest] repository, clone it locally, and install the dependencies.
+To get you started you can simply fork the [swell-devtest](https://github.com/Swell-Platform/swell-devtest) repository, clone it locally, and install the dependencies.
 
 ### Install Node
 
