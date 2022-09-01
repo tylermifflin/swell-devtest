@@ -9,7 +9,8 @@
 		"serve": "nx serve",
 		"start": "nx run-many --target=serve --projects=reviews-api,reviews-client",
 		"test": "nx test",
-		"prepare": "husky install && prisma generate"
+		"prepare": "husky install && prisma generate",
+		"setup": "shx cp -rf ./db/swell-sample.db ./db/swell.db"
 	},
 	"private": true,
 	"devDependencies": {
@@ -51,6 +52,7 @@
 		"prisma": "^4.3.0",
 		"react-test-renderer": "18.2.0",
 		"shelljs": "^0.8.5",
+		"shx": "^0.3.4",
 		"supertest": "^6.2.4",
 		"ts-jest": "28.0.5",
 		"ts-node": "10.9.1",

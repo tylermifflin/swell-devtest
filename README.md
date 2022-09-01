@@ -50,7 +50,11 @@ npm install
 
 ### Create the Database
 
-This project uses a simple [SQLite](https://www.sqlite.org/index.html) database. A seeded database is include in the repository at `<projectRoot>/db/swell-sample.db`. Before running the application, you will need to copy this file to `<projectRoot>/db/swell.db`.
+This project uses a simple [SQLite](https://www.sqlite.org/index.html) database. A seeded database is include in the repository at `<projectRoot>/db/swell-sample.db`. Before running the application, you will need to copy this file to `<projectRoot>/db/swell.db` by running the following command:
+
+```bash
+npm run setup
+```
 
 ## Running the Application
 
@@ -106,6 +110,9 @@ You can also run tests for all projects that have been affected by a change by r
 npm run affected test
 ```
 
-## Further Help
+## Code Scaffolding
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+This project uses [Nx](https://nx.dev) to provide a modern integrated dev experience.
+Nx includes a number of code generators that can be used to generate libraries, modules, controllers, services, components, etc.
+
+Visit the [Nx Documentation](https://nx.dev/plugin-features/use-code-generators) to learn more.
