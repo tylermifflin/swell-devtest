@@ -5,7 +5,6 @@ import { DatabaseModule } from '../database/database.module';
 import { DatabaseService } from '../database/database.service';
 import { ReviewsController } from './reviews.controller';
 import { ReviewsService } from './reviews.service';
-import { ReviewExt } from './reviews.types';
 
 describe('ReviewsController', () => {
 	const user1Id = 'user-1';
