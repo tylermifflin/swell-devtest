@@ -50,6 +50,18 @@
 			"options": {
 				"jestConfig": "apps/reviews-api/jest.config.ts",
 				"passWithNoTests": true
+			},
+			"dependsOn": ["create-test-db"]
+		},
+		"create-test-db": {
+			"executor": "./tools/executors/copy:copy",
+			"options": {
+				"patterns": [
+					{
+						"from": "./db/swell-sample.db",
+						"to": "./db/swell-test.db"
+					}
+				]
 			}
 		}
 	},

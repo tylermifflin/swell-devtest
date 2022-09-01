@@ -47,6 +47,7 @@
 		"prettier": "^2.6.2",
 		"prisma": "^4.3.0",
 		"react-test-renderer": "18.2.0",
+		"shelljs": "^0.8.5",
 		"supertest": "^6.2.4",
 		"ts-jest": "28.0.5",
 		"ts-node": "10.9.1",

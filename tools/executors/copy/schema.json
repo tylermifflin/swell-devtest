@@ -1,0 +1,26 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"type": "object",
+	"cli": "nx",
+	"properties": {
+		"patterns": {
+			"type": "array",
+			"description": "The list of copy pattern objects",
+			"items": {
+				"type": "object",
+				"properties": {
+					"from": {
+						"type": "string",
+						"description": "The source files or directories (space delimited) to copy"
+					},
+					"to": {
+						"type": "string",
+						"description": "The destination to copy the files or directories to"
+					}
+				},
+				"required": ["from", "to"]
+			}
+		}
+	},
+	"required": ["patterns"]
+}

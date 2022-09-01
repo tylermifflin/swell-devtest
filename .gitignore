@@ -34,7 +34,8 @@ testem.log
 /typings
 
 /db/bin
-/db/swell.db
+/db/swell*.db
+!/db/swell-sample.db
 
 # System Files
 .DS_Store

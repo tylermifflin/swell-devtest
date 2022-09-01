@@ -1,0 +1,9 @@
+{
+	"executors": {
+		"copy": {
+			"implementation": "./impl",
+			"schema": "./schema.json",
+			"description": "Copies files or directories to a location that already exists"
+		}
+	}
+}
