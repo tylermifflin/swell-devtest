@@ -13,10 +13,7 @@ describe('HealthController', () => {
 		const module: TestingModule = await Test.createTestingModule({
 			controllers: [HealthController],
 			imports: [TerminusModule],
-			providers: [
-				{ provide: DatabaseService, useValue: { $queryRaw: jest.fn() } },
-				PrismaHealthIndicator,
-			],
+			providers: [DatabaseService, PrismaHealthIndicator],
 		}).compile();
 
 		app = module.createNestApplication();
