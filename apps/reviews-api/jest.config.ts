@@ -2,6 +2,7 @@
 export default {
 	displayName: 'reviews-api',
 	preset: '../../jest.preset.js',
+	globalSetup: '<rootDir>/jest.global-setup.ts',
 	globals: {
 		'ts-jest': {
 			tsconfig: '<rootDir>/tsconfig.spec.json',
