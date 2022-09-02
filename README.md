@@ -20,6 +20,28 @@ The project was generated using [Nx](https://nx.dev) to provide a modern integra
 
 The app doesn't do much (yet)... that part is up to the applicant.
 
+### Project Structure
+
+The project is a simple Nx workspace with two applications, located in the `apps` directory.
+For simplicity, we chose not to place code in libraries (`libs` directory), but if you are familiar with Nx,
+you are more than welcome to refactor the code to use libraries.
+There is also a `db` directory which contains a sample SQLite database seeded with some data,
+and a `prisma` directory which contains the Prisma schema file.
+
+```
+swell-devtest
+├── apps (backend and front end applications)
+│   ├── reviews-api
+│   │   └── src
+│   ├── reviews-client
+│   │   └── src
+├── db (database files)
+│   └── swell-sample.db
+├── libs (Nx libraries [currently empty])
+└── prisma (Prisma schema file)
+    └── schema.prisma
+```
+
 ## Getting Started
 
 To get you started you can simply fork the [swell-devtest](https://github.com/Swell-Platform/swell-devtest) repository, clone it locally, and install the dependencies.
@@ -51,7 +73,9 @@ npm install
 
 ### Create the Database
 
-This project uses a simple [SQLite](https://www.sqlite.org/index.html) database. A seeded database is include in the repository at `<projectRoot>/db/swell-sample.db`. Before running the application, you will need to copy this file to `<projectRoot>/db/swell.db` by running the following command:
+This project uses a simple [SQLite](https://www.sqlite.org/index.html) database.
+A seeded database is include in the repository at `<projectRoot>/db/swell-sample.db`.
+Before running the application, you will need to copy this file to `<projectRoot>/db/swell.db` by running the following command:
 
 ```bash
 npm run setup
@@ -66,7 +90,8 @@ To start both applications, run the following command:
 npm start
 ```
 
-This will start the backend API server on port 3333 and the front end application on port 4200. The app will automatically reload if you change any of the source files.
+This will start the backend API server on port 3333 and the front end application on port 4200.
+The app will automatically reload if you change any of the source files.
 
 The applications can also be run independently by running the following commands:
 
@@ -77,6 +102,11 @@ npm run serve reviews-api
 # Start the front end application
 npm run serve reviews-client
 ```
+
+### Backend Proxy
+
+For convenience, the front end application is configured to proxy API requests to the backend API server.
+When making requests to the API, you can use the relative path `/api`.
 
 ## Running Unit Tests
 
@@ -102,6 +132,20 @@ npm run test reviews-api -- --watch
 # Run unit tests for the front end application in watch mode
 npm run test reviews-client -- --watch
 ```
+
+### Code Coverage
+
+To generate code coverage reports, run the following command:
+
+```bash
+# Generate code coverage reports for the backend API server
+npm run test reviews-api -- --coverage
+
+# Generate code coverage reports for the front end application
+npm run test reviews-client -- --coverage
+```
+
+Coverage will be reported in the console after the tests run, and a detailed HTML report will be generated in the `coverage` directory.
 
 ### Test Affected Code
 

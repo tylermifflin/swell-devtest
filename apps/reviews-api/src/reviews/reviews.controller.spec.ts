@@ -7,8 +7,10 @@ import { ReviewsController } from './reviews.controller';
 import { ReviewsService } from './reviews.service';
 
 describe('ReviewsController', () => {
-	const userId = '18010e97-6c8b-4d07-aaef-d005bf8c115d';
-	const companyId = '1fb5049c-12fa-4b44-8abc-0503b75760b8';
+	const user1Id = 'user-1';
+	const user2Id = 'user-2';
+	const company1Id = 'company-1';
+	const company2Id = 'company-2';
 
 	let app: INestApplication;
 	let prisma: DatabaseService;
@@ -26,25 +28,39 @@ describe('ReviewsController', () => {
 
 		await prisma.$transaction([
 			prisma.user.create({
-				data: { id: userId, email: 'user@example.com' },
+				data: { id: user1Id, email: 'user1@example.com' },
+			}),
+			prisma.user.create({
+				data: { id: user2Id, email: 'user2@example.com' },
 			}),
 			prisma.company.create({
-				data: { id: companyId, name: 'Test Company' },
+				data: { id: company1Id, name: 'Test Company' },
+			}),
+			prisma.company.create({
+				data: { id: company2Id, name: 'Test Company 2' },
 			}),
 			prisma.review.create({
 				data: {
-					id: '18010e97-6c8b-4d07-aaef-d005bf8c115d',
-					reviewerId: userId,
-					companyId: companyId,
-					createdOn: new Date().toISOString(),
+					id: '1',
+					reviewerId: user1Id,
+					companyId: company1Id,
+					createdOn: '2020-01-01T00:00:00.000Z',
 				},
 			}),
 			prisma.review.create({
 				data: {
-					id: '70b44a35-6482-4066-b8fd-ade09958562e',
-					reviewerId: userId,
-					companyId: companyId,
-					createdOn: new Date().toISOString(),
+					id: '3',
+					reviewerId: user2Id,
+					companyId: company1Id,
+					createdOn: '2022-01-01T00:00:00.000Z',
+				},
+			}),
+			prisma.review.create({
+				data: {
+					id: '2',
+					reviewerId: user2Id,
+					companyId: company2Id,
+					createdOn: '2021-01-01T00:00:00.000Z',
 				},
 			}),
 		]);
@@ -56,9 +72,21 @@ describe('ReviewsController', () => {
 		await prisma.company.deleteMany({ where: {} });
 	});
 
-	it('getReviewsCount() should return number of reviews', async () => {
-		const response = await request(app.getHttpServer()).get('/reviews/count');
-		expect(response.status).toBe(200);
-		expect(response.body.reviewsCount).toBe(2);
+	describe('getReviewsCount()', () => {
+		it('should return number of reviews', async () => {
+			const response = await request(app.getHttpServer()).get('/reviews/count');
+			expect(response.status).toBe(200);
+			expect(response.body.reviewsCount).toBe(3);
+		});
+	});
+
+	describe('getReviews()', () => {
+		it.todo('should fetch all reviews');
+
+		it.todo('should fetch reviews in descending order by date');
+
+		it.todo('should include user data with review');
+
+		it.todo('should include company data with review');
 	});
 });

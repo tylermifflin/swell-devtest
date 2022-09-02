@@ -22,8 +22,8 @@ model Review {
   reviewText  String?   @map("review_text")
   rating      Int?
   createdOn   String    @map("created_on")
-  companies   Company   @relation(fields: [companyId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  users       User      @relation(fields: [reviewerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  company     Company   @relation(fields: [companyId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user        User      @relation(fields: [reviewerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("reviews")
 }
