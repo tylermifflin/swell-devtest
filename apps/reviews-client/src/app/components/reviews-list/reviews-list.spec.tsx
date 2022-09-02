@@ -11,13 +11,7 @@ describe('ReviewsList', () => {
 
 	it.todo('should display message if no reviews are found');
 
-	it.todo('should display the date of the review in a human readable format');
-
-	it.todo('should display the name of the reviewer');
-
-	it.todo('should display the name of the company');
-
 	it.todo('should display the review text if provided');
 
-	it.todo('should display the rating if provided');
+	// Feel free to add any additional tests you think are necessary
 });
