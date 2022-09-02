@@ -133,6 +133,20 @@ npm run test reviews-api -- --watch
 npm run test reviews-client -- --watch
 ```
 
+### Code Coverage
+
+To generate code coverage reports, run the following command:
+
+```bash
+# Generate code coverage reports for the backend API server
+npm run test reviews-api -- --coverage
+
+# Generate code coverage reports for the front end application
+npm run test reviews-client -- --coverage
+```
+
+Coverage will be reported in the console after the tests run, and a detailed HTML report will be generated in the `coverage` directory.
+
 ### Test Affected Code
 
 You can also run tests for all projects that have been affected by a change by running the following command:
