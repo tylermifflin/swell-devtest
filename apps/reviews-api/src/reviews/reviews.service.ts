@@ -11,6 +11,9 @@ export class ReviewsService {
 				user: true,
 				company: true,
 			},
+			orderBy: {
+				createdOn: 'desc',
+			},
 		});
 	}
 
