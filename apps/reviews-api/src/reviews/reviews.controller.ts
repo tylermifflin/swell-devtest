@@ -8,7 +8,7 @@ export class ReviewsController {
 
 	@Get()
 	async getReviews(): Promise<ReviewsResponse> {
-		const reviews = await this.reviewsService.getAllReviews();
+		const reviews = await this.reviewsService.getReviews();
 		return { reviews };
 	}
 
