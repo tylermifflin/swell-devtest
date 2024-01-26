@@ -1,6 +1,6 @@
 import { Controller, Get, NotFoundException } from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
-import { ReviewsCountResponse, ReviewsResponse } from './reviews.types';
+import { ReviewExt, ReviewsCountResponse, ReviewsResponse } from './reviews.types';
 
 @Controller('reviews')
 export class ReviewsController {
@@ -8,7 +8,7 @@ export class ReviewsController {
 
 	@Get()
 	async getReviews(): Promise<ReviewsResponse> {
-		const reviews = await this.reviewsService.getReviews();
+		const reviews: ReviewExt[] = await this.reviewsService.getAllReviewsWithDetails();
 		return { reviews };
 	}
 
