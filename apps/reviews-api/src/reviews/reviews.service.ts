@@ -5,8 +5,13 @@ import { DatabaseService } from '../database/database.service';
 export class ReviewsService {
 	constructor(private prisma: DatabaseService) {}
 
-	async getReviews() {
-		return this.prisma.review.findMany();
+	async getAllReviewsWithDetails() {
+		return this.prisma.review.findMany({
+			include: {
+				user: true,
+				company: true,
+			},
+		});
 	}
 
 	getReviewsCount() {
