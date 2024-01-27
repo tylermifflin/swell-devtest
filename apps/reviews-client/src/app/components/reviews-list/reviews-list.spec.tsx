@@ -19,7 +19,9 @@ describe('ReviewsList', () => {
 		expect(message).toBeTruthy();
 	});
 
-	it.todo('should display the review text if provided');
-
-	// Feel free to add any additional tests you think are necessary
+	it('should display the review text if provided', () => {
+		const { getByText } = render(<ReviewsList />);
+		const message = getByText('Great company');
+		expect(message).toBeTruthy();
+	});
 });
