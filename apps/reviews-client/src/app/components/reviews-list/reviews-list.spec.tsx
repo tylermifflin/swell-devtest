@@ -7,9 +7,13 @@ describe('ReviewsList', () => {
 		expect(baseElement).toBeTruthy();
 	});
 
-	it.todo('should render list of reviews');
+	it('should render list of reviews', () => {
+		const { getAllByTestId } = render(<ReviewsList />);
+		const reviews = getAllByTestId('review');
+		expect(reviews.length).toBeGreaterThan(0);
+	});
 
-	it.todo('should display message if no reviews are found');
+	it('should display message if no reviews are found');
 
 	it.todo('should display the review text if provided');
 
