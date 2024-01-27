@@ -2,6 +2,16 @@ import { render } from '@testing-library/react';
 import ReviewsList from './reviews-list';
 
 describe('ReviewsList', () => {
+	beforeEach(() => {
+		jest.spyOn(global, 'fetch').mockResolvedValue({
+			ok: true,
+			json: async () => ({ reviews: [] }),
+		} as Response);
+	});
+
+	afterEach(() => {
+		jest.restoreAllMocks();
+	});
 	it('should render successfully', () => {
 		const { baseElement } = render(<ReviewsList />);
 		expect(baseElement).toBeTruthy();
