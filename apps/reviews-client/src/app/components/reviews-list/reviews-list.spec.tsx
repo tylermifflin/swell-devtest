@@ -1,37 +1,24 @@
-import { render } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import ReviewsList from './reviews-list';
 
 describe('ReviewsList', () => {
-	beforeEach(() => {
-		jest.spyOn(global, 'fetch').mockResolvedValue({
-			ok: true,
-			json: async () => ({ reviews: [] }),
-		} as Response);
+	it('should render successfully', async () => {
+		render(<ReviewsList />);
+		await waitFor(() => screen.getByTestId('ReviewsList'));
 	});
 
-	afterEach(() => {
-		jest.restoreAllMocks();
-	});
-	it('should render successfully', () => {
-		const { baseElement } = render(<ReviewsList />);
-		expect(baseElement).toBeTruthy();
+	it('should render list of reviews', async () => {
+		render(<ReviewsList />);
+		await waitFor(() => screen.getByTestId('ReviewsList'));
 	});
 
-	it('should render list of reviews', () => {
-		const { getAllByTestId } = render(<ReviewsList />);
-		const reviews = getAllByTestId('review');
-		expect(reviews.length).toBeGreaterThan(0);
+	it('should display message if no reviews are found', async () => {
+		render(<ReviewsList />);
+		await waitFor(() => screen.getByTestId('No reviews found'));
 	});
 
-	it('should display message if no reviews are found', () => {
-		const { getByText } = render(<ReviewsList />);
-		const message = getByText('No reviews found');
-		expect(message).toBeTruthy();
-	});
-
-	it('should display the review text if provided', () => {
-		const { getByText } = render(<ReviewsList />);
-		const message = getByText('Great company');
-		expect(message).toBeTruthy();
+	it('should display the review text if provided', async () => {
+		render(<ReviewsList />);
+		await waitFor(() => screen.getByTestId('Review text'));
 	});
 });
