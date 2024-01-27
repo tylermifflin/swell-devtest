@@ -14,7 +14,7 @@ interface Review {
 		name: string;
 	};
 	rating?: number;
-	text?: string;
+	reviewText?: string;
 	createdOn: string;
 }
 
@@ -65,7 +65,7 @@ export function ReviewsList(props: ReviewsListProps) {
 						<div key={review.id}>
 							{review.user.firstName} from {review.company.name} gave {review.rating} stars
 							<br />
-							{review.text}
+							{review.reviewText}
 							<br />
 							{review.createdOn}
 						</div>
