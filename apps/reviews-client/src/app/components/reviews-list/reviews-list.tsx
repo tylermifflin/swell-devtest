@@ -32,7 +32,7 @@ export function ReviewsList(props: ReviewsListProps) {
 				}
 				const data = await response.json();
 				console.log(data);
-				setReviews(data);
+				setReviews(data.reviews);
 			} catch (error) {
 				setError('Error fetching reviews');
 			} finally {
