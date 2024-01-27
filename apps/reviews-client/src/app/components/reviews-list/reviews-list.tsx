@@ -31,7 +31,8 @@ export function ReviewsList(props: ReviewsListProps) {
 					throw new Error('Network response was not ok');
 				}
 				const data = await response.json();
-				setReviews(data.reviews);
+				console.log(data);
+				setReviews(data);
 			} catch (error) {
 				setError('Error fetching reviews');
 			} finally {
@@ -42,9 +43,36 @@ export function ReviewsList(props: ReviewsListProps) {
 	}, []);
 
 	return (
-		<Alert severity="error" icon={<TaskIcon />}>
-			TODO: Implement ReviewsList
-		</Alert>
+		<div>
+			{loading && (
+				<Alert severity="info" icon={<TaskIcon />}>
+					{' '}
+					Loading reviews...
+				</Alert>
+			)}
+			{error && (
+				<Alert severity="error" icon={<TaskIcon />}>
+					{' '}
+					{error}
+				</Alert>
+			)}
+			{!loading && !error && reviews.length === 0 && (
+				<Alert severity="info"> icon={<TaskIcon />} No reviews found</Alert>
+			)}
+			{!loading && !error && reviews.length > 0 && (
+				<div>
+					{reviews.map((review) => (
+						<div key={review.id}>
+							{review.reviewer.name} from {review.company.name} gave {review.rating} stars
+							<br />
+							{review.text}
+							<br />
+							{review.createdOn}
+						</div>
+					))}
+				</div>
+			)}
+		</div>
 	);
 }
 
