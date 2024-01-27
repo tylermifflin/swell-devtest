@@ -7,8 +7,8 @@ export interface ReviewsListProps {}
 
 interface Review {
 	id: string;
-	reviewer: {
-		name: string;
+	user: {
+		firstName: string;
 	};
 	company: {
 		name: string;
@@ -63,7 +63,7 @@ export function ReviewsList(props: ReviewsListProps) {
 				<div>
 					{reviews.map((review) => (
 						<div key={review.id}>
-							{review.reviewer.name} from {review.company.name} gave {review.rating} stars
+							{review.user.firstName} from {review.company.name} gave {review.rating} stars
 							<br />
 							{review.text}
 							<br />
