@@ -22,6 +22,25 @@ export function ReviewsList(props: ReviewsListProps) {
 	const [reviews, setReviews] = useState<Review[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
+
+	useEffect(() => {
+		const fetchReviews = async () => {
+			try {
+				const response = await fetch('/api/reviews');
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				const data = await response.json();
+				setReviews(data.reviews);
+			} catch (error) {
+				setError('Error fetching reviews');
+			} finally {
+				setLoading(false);
+			}
+		};
+		fetchReviews();
+	}, []);
+
 	return (
 		<Alert severity="error" icon={<TaskIcon />}>
 			TODO: Implement ReviewsList
