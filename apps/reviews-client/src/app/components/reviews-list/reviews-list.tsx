@@ -19,6 +19,9 @@ interface Review {
 }
 
 export function ReviewsList(props: ReviewsListProps) {
+	const [reviews, setReviews] = useState<Review[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
 	return (
 		<Alert severity="error" icon={<TaskIcon />}>
 			TODO: Implement ReviewsList
