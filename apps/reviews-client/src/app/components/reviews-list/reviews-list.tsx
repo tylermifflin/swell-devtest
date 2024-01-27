@@ -70,8 +70,8 @@ export function ReviewsList(props: ReviewsListProps) {
 			)}
 			{!loading && !error && reviews.length > 0 && (
 				<div>
-					{reviews.map((review) => (
-						<div key={review.id}>
+					{currentReviews.map((review) => (
+						<div key={review.id} style={{ marginBottom: '20px' }}>
 							{review.user.firstName} from {review.company.name} gave {review.rating} stars
 							<br />
 							{review.reviewText}
@@ -80,6 +80,14 @@ export function ReviewsList(props: ReviewsListProps) {
 							<br />
 						</div>
 					))}
+
+					<div>
+						{Array.from({ length: Math.ceil(reviews.length / reviewsPerPage) }).map((_, i) => (
+							<button key={i} onClick={() => paginate(i + 1)}>
+								{i + 1}
+							</button>
+						))}
+					</div>
 				</div>
 			)}
 		</div>
