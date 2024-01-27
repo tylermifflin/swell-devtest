@@ -18,10 +18,13 @@ interface Review {
 	createdOn: string;
 }
 
+const reviewsPerPage = 25;
+
 export function ReviewsList(props: ReviewsListProps) {
 	const [reviews, setReviews] = useState<Review[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
+	const [currentPage, setCurrentPage] = useState(1);
 
 	useEffect(() => {
 		const fetchReviews = async () => {
@@ -41,6 +44,12 @@ export function ReviewsList(props: ReviewsListProps) {
 		};
 		fetchReviews();
 	}, []);
+
+	const indexOfLastReview = currentPage * reviewsPerPage;
+	const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+	const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
+
+	const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
 	return (
 		<div>
@@ -68,6 +77,7 @@ export function ReviewsList(props: ReviewsListProps) {
 							{review.reviewText}
 							<br />
 							{review.createdOn}
+							<br />
 						</div>
 					))}
 				</div>
