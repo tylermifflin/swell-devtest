@@ -13,7 +13,11 @@ describe('ReviewsList', () => {
 		expect(reviews.length).toBeGreaterThan(0);
 	});
 
-	it('should display message if no reviews are found');
+	it('should display message if no reviews are found', () => {
+		const { getByText } = render(<ReviewsList />);
+		const message = getByText('No reviews found');
+		expect(message).toBeTruthy();
+	});
 
 	it.todo('should display the review text if provided');
 
